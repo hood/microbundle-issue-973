@@ -1,0 +1,32 @@
+{
+  "name": "microbundle-issue-973",
+  "version": "1.0.0",
+  "author": "Andrea Cappuccio <hood@null.net>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "prepare": "microbundle ./src/one.ts ./src/two.ts --tsconfig ./tsconfig.json"
+  },
+  "exports": {
+    "./one": {
+      "import": "./dist/one.modern.js",
+      "require": "./dist/one.cjs",
+      "types": "./dist/one.d.ts",
+      "default": "./dist/one.modern.js"
+    },
+    "./two": {
+      "import": "./dist/two.modern.js",
+      "require": "./dist/two.cjs",
+      "types": "./dist/two.d.ts",
+      "default": "./dist/two.modern.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "microbundle": "^0.15.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {}
+}
